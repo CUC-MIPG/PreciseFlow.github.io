@@ -42,6 +42,58 @@ body {
     max-width: 900px;
 }
 
+/* =================== Sticky Navigation =================== */
+.navbar {
+    position: fixed;
+    top: -60px;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+    transition: top 0.3s ease;
+}
+
+.navbar.visible {
+    top: 0;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-logo {
+    color: var(--color-accent);
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: var(--color-white);
+}
+
 /* =================== Compact Header =================== */
 .header {
     background: var(--color-black);
