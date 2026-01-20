@@ -1,0 +1,655 @@
+/* =================== 全局样式 =================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* 黑白配色 */
+    --color-black: #000000;
+    --color-white: #ffffff;
+    --color-gray-dark: #1a1a1a;
+    --color-gray: #333333;
+    --color-gray-light: #666666;
+    --color-gray-lighter: #999999;
+    --color-gray-bg: #0a0a0a;
+
+    /* 强调色 - 紫色 */
+    --color-accent: #8D85E5;
+    --color-accent-light: rgba(141, 133, 229, 0.1);
+    --color-accent-hover: #a39ef0;
+
+    /* 半透明 */
+    --overlay-light: rgba(255, 255, 255, 0.05);
+    --overlay-medium: rgba(255, 255, 255, 0.1);
+    --overlay-heavy: rgba(255, 255, 255, 0.15);
+
+    /* 字体 */
+    --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+    /* 间距 */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 6rem;
+
+    /* 过渡 */
+    --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    background: var(--color-black);
+    color: var(--color-white);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* =================== Hero Section =================== */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(180deg, var(--color-black) 0%, var(--color-gray-bg) 100%);
+    position: relative;
+    padding: var(--spacing-xl) 0;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+.title {
+    font-size: 3.5rem;
+    font-weight: 300;
+    line-height: 1.3;
+    margin-bottom: var(--spacing-md);
+    letter-spacing: -0.02em;
+}
+
+.title .highlight {
+    color: var(--color-accent);
+    font-weight: 600;
+}
+
+.authors {
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-sm);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.author {
+    margin: 0 var(--spacing-xs);
+    font-weight: 400;
+}
+
+.author sup {
+    color: var(--color-accent);
+}
+
+.affiliation {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: var(--spacing-lg);
+}
+
+.links {
+    display: flex;
+    gap: var(--spacing-sm);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.75rem;
+    background: var(--overlay-medium);
+    color: var(--color-white);
+    text-decoration: none;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 1rem;
+    font-weight: 500;
+    transition: var(--transition);
+    backdrop-filter: blur(10px);
+}
+
+.btn:hover {
+    background: var(--overlay-heavy);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+}
+
+.btn-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* =================== Teaser Section =================== */
+.teaser {
+    padding: var(--spacing-xl) 0;
+    background: var(--color-gray-bg);
+}
+
+.teaser-placeholder {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: var(--overlay-light);
+    border: 2px dashed rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--spacing-md);
+    transition: var(--transition);
+}
+
+.teaser-placeholder:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+    background: var(--overlay-medium);
+}
+
+.teaser-placeholder p {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: var(--spacing-xs);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.teaser-placeholder span {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.teaser-caption {
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.highlight-text {
+    color: var(--color-accent);
+    font-weight: 500;
+}
+
+/* =================== Navigation Tabs =================== */
+.nav-tabs {
+    position: sticky;
+    top: 0;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 100;
+    padding: var(--spacing-sm) 0;
+}
+
+.tabs {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.tab {
+    padding: 0.75rem 1.5rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 6px;
+    transition: var(--transition);
+    position: relative;
+}
+
+.tab:hover {
+    color: var(--color-white);
+    background: var(--overlay-light);
+}
+
+.tab.active {
+    color: var(--color-white);
+    background: var(--color-accent-light);
+}
+
+.tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40%;
+    height: 2px;
+    background: var(--color-accent);
+}
+
+/* =================== Section Styles =================== */
+.section {
+    padding: var(--spacing-xl) 0;
+    position: relative;
+}
+
+.section.dark {
+    background: var(--color-gray-bg);
+}
+
+.section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    letter-spacing: -0.01em;
+}
+
+.content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: var(--spacing-md);
+}
+
+.content h3 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin: var(--spacing-lg) 0 var(--spacing-md);
+    color: var(--color-accent);
+}
+
+.framework-placeholder,
+.method-placeholder {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: var(--overlay-light);
+    border: 2px dashed rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: var(--spacing-lg) 0;
+    transition: var(--transition);
+}
+
+.framework-placeholder:hover,
+.method-placeholder:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+    background: var(--overlay-medium);
+}
+
+.framework-placeholder p,
+.method-placeholder p {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: var(--spacing-xs);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.framework-placeholder span,
+.method-placeholder span {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.caption {
+    text-align: center;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-style: italic;
+    margin-top: var(--spacing-md);
+}
+
+/* =================== Results Section =================== */
+.result-item {
+    margin-bottom: var(--spacing-xl);
+}
+
+.result-title {
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.result-title s {
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: line-through;
+}
+
+.result-title strong {
+    color: var(--color-accent);
+    font-weight: 600;
+}
+
+.comparison-slider {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.video-placeholder {
+    aspect-ratio: 480/832;
+    /* 竖屏视频比例 (宽/高) - 480宽 832高 */
+    background: var(--overlay-light);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    max-height: 70vh;
+    /* 限制最大高度避免过高 */
+}
+
+/* 视频容器样式 - 用于实际视频 */
+.video-placeholder video,
+.video-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* 保持视频比例，不裁剪 */
+    background: var(--color-black);
+}
+
+.video-placeholder:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.video-placeholder.left::before {
+    content: 'Source';
+    position: absolute;
+    top: var(--spacing-sm);
+    left: var(--spacing-sm);
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+}
+
+.video-placeholder.right::before {
+    content: 'PreciseFlow';
+    position: absolute;
+    top: var(--spacing-sm);
+    right: var(--spacing-sm);
+    padding: 0.5rem 1rem;
+    background: var(--color-accent-light);
+    color: var(--color-accent);
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+}
+
+.video-placeholder p {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: var(--spacing-xs);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.video-placeholder span {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* =================== Comparison Section =================== */
+.comparison-grid {
+    margin-top: var(--spacing-lg);
+}
+
+.comparison-placeholder {
+    width: 100%;
+    min-height: 400px;
+    background: var(--overlay-light);
+    border: 2px dashed rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.comparison-placeholder:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+    background: var(--overlay-medium);
+}
+
+.comparison-placeholder p {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: var(--spacing-xs);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.comparison-placeholder span {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* =================== BibTeX Section =================== */
+.bibtex-box {
+    background: var(--color-gray-dark);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    overflow-x: auto;
+}
+
+.bibtex-box pre {
+    margin: 0;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.bibtex-box code {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.note {
+    text-align: center;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-style: italic;
+}
+
+/* =================== Footer =================== */
+.footer {
+    background: var(--color-gray-dark);
+    padding: var(--spacing-lg) 0;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer p {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer-note {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* =================== 响应式设计 =================== */
+@media (max-width: 1024px) {
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --spacing-lg: 3rem;
+        --spacing-xl: 4rem;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .authors {
+        font-size: 1rem;
+    }
+
+    .affiliation {
+        font-size: 1rem;
+    }
+
+    .links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+
+    .tabs {
+        gap: var(--spacing-xs);
+    }
+
+    .tab {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .comparison-slider {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .content p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .result-title {
+        font-size: 1.2rem;
+    }
+}
+
+/* =================== 动画效果 =================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero .container>* {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+.hero .title {
+    animation-delay: 0.1s;
+}
+
+.hero .authors {
+    animation-delay: 0.2s;
+}
+
+.hero .affiliation {
+    animation-delay: 0.3s;
+}
+
+.hero .links {
+    animation-delay: 0.4s;
+}
+
+/* 滚动动画 */
+.section {
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out forwards;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+}
