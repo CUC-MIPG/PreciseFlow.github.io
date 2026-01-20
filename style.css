@@ -216,16 +216,23 @@ body {
     margin-top: var(--spacing-sm);
 }
 
-/* =================== Video Results - 横屏视频 =================== */
+/* =================== Video Results - 横屏视频 一行3个 =================== */
+.results-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
 .result-item {
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: 0;
 }
 
 .result-title {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 400;
     text-align: center;
-    margin-bottom: var(--spacing-md);
+    margin-bottom: 0.8rem;
     color: rgba(255, 255, 255, 0.9);
 }
 
@@ -240,13 +247,13 @@ body {
 
 /* Juxtapose 滑动对比容器 - 横屏视频 832x480 */
 .juxtapose-container {
-    max-width: 100%;
+    width: 100%;
     margin: 0 auto;
-    border-radius: 8px;
+    border-radius: 6px;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.2);
     background: var(--color-black);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
 .juxtapose {
@@ -317,6 +324,12 @@ body {
 }
 
 /* =================== 响应式设计 =================== */
+@media (max-width: 1024px) {
+    .results-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
     .title {
         font-size: 1.6rem;
@@ -340,8 +353,8 @@ body {
         max-width: 280px;
     }
 
-    .juxtapose-container {
-        max-width: 100%;
+    .results-row {
+        grid-template-columns: 1fr;
     }
 }
 
