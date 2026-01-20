@@ -1,5 +1,5 @@
-<svg width="480" height="832" xmlns="http://www.w3.org/2000/svg">
-  <rect width="480" height="832" fill="#1a1a1a"/>
-  <text x="240" y="400" font-family="Arial" font-size="24" fill="#8D85E5" text-anchor="middle">Edited Video</text>
-  <text x="240" y="440" font-family="Arial" font-size="16" fill="#444" text-anchor="middle">480 x 832</text>
+<svg width="832" height="480" xmlns="http://www.w3.org/2000/svg">
+  <rect width="832" height="480" fill="#1a1a1a"/>
+  <text x="416" y="230" font-family="Arial" font-size="28" fill="#8D85E5" text-anchor="middle">Edited Video (PreciseFlow)</text>
+  <text x="416" y="270" font-family="Arial" font-size="18" fill="#444" text-anchor="middle">832 x 480</text>
 </svg>

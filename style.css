@@ -1,4 +1,4 @@
-/* =================== 全局样式 =================== */
+/* =================== 全局样式 - 制片厂黑白风格 =================== */
 * {
     margin: 0;
     padding: 0;
@@ -10,7 +10,7 @@
     --color-white: #ffffff;
     --color-gray-dark: #1a1a1a;
     --color-gray-bg: #0a0a0a;
-    --color-gray-light: #f5f5f5;
+    --color-gray-medium: #333333;
     --color-accent: #8D85E5;
     --overlay-light: rgba(255, 255, 255, 0.05);
     --overlay-medium: rgba(255, 255, 255, 0.1);
@@ -27,8 +27,8 @@ html {
 
 body {
     font-family: var(--font-main);
-    background: var(--color-white);
-    color: #333;
+    background: var(--color-black);
+    color: var(--color-white);
     line-height: 1.6;
 }
 
@@ -44,10 +44,10 @@ body {
 
 /* =================== Compact Header =================== */
 .header {
-    background: var(--color-white);
+    background: var(--color-black);
     padding: var(--spacing-lg) 0 var(--spacing-md);
     text-align: center;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .title {
@@ -55,7 +55,7 @@ body {
     font-weight: 400;
     line-height: 1.4;
     margin-bottom: var(--spacing-md);
-    color: #222;
+    color: var(--color-white);
 }
 
 .title .highlight {
@@ -66,7 +66,7 @@ body {
 .authors {
     font-size: 1.1rem;
     margin-bottom: 0.5rem;
-    color: #555;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .author {
@@ -79,7 +79,7 @@ body {
 
 .affiliation {
     font-size: 1rem;
-    color: #666;
+    color: rgba(255, 255, 255, 0.7);
     margin-bottom: var(--spacing-md);
 }
 
@@ -95,19 +95,19 @@ body {
     align-items: center;
     gap: 0.5rem;
     padding: 0.7rem 1.5rem;
-    background: #f5f5f5;
-    color: #333;
+    background: var(--overlay-medium);
+    color: var(--color-white);
     text-decoration: none;
     border-radius: 6px;
-    border: 1px solid #ddd;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     font-size: 0.95rem;
     font-weight: 500;
     transition: all 0.2s ease;
 }
 
 .btn:hover {
-    background: #e8e8e8;
-    border-color: #ccc;
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.4);
 }
 
 .btn-disabled {
@@ -119,11 +119,22 @@ body {
 /* =================== Section Styles =================== */
 .section {
     padding: var(--spacing-xl) 0;
-    background: var(--color-white);
+    background: var(--color-black);
+    position: relative;
 }
 
 .section.light {
-    background: #fafafa;
+    background: var(--color-gray-bg);
+}
+
+.section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
 }
 
 .section-title {
@@ -131,14 +142,14 @@ body {
     font-weight: 500;
     text-align: center;
     margin-bottom: var(--spacing-lg);
-    color: #222;
+    color: var(--color-white);
 }
 
 .description,
 .content-text {
     font-size: 1.05rem;
     line-height: 1.8;
-    color: #555;
+    color: rgba(255, 255, 255, 0.8);
     text-align: center;
     max-width: 900px;
     margin: 0 auto var(--spacing-md);
@@ -160,8 +171,8 @@ body {
 .comparison-placeholder {
     width: 100%;
     aspect-ratio: 16/9;
-    background: #f5f5f5;
-    border: 2px dashed #ddd;
+    background: var(--overlay-light);
+    border: 2px dashed rgba(255, 255, 255, 0.2);
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -175,8 +186,8 @@ body {
 .framework-placeholder:hover,
 .method-placeholder:hover,
 .comparison-placeholder:hover {
-    border-color: #bbb;
-    background: #f0f0f0;
+    border-color: rgba(255, 255, 255, 0.4);
+    background: var(--overlay-medium);
 }
 
 .teaser-placeholder p,
@@ -186,7 +197,7 @@ body {
     font-size: 1.2rem;
     font-weight: 500;
     margin-bottom: 0.5rem;
-    color: #666;
+    color: rgba(255, 255, 255, 0.7);
 }
 
 .teaser-placeholder span,
@@ -194,18 +205,18 @@ body {
 .method-placeholder span,
 .comparison-placeholder span {
     font-size: 0.9rem;
-    color: #999;
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .caption {
     text-align: center;
     font-size: 0.95rem;
-    color: #666;
+    color: rgba(255, 255, 255, 0.7);
     font-style: italic;
     margin-top: var(--spacing-sm);
 }
 
-/* =================== Video Results =================== */
+/* =================== Video Results - 横屏视频 =================== */
 .result-item {
     margin-bottom: var(--spacing-xl);
 }
@@ -215,11 +226,11 @@ body {
     font-weight: 400;
     text-align: center;
     margin-bottom: var(--spacing-md);
-    color: #444;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .result-title s {
-    color: #999;
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .result-title strong {
@@ -227,28 +238,28 @@ body {
     font-weight: 600;
 }
 
-/* Juxtapose 滑动对比容器 */
+/* Juxtapose 滑动对比容器 - 横屏视频 832x480 */
 .juxtapose-container {
-    max-width: 700px;
+    max-width: 100%;
     margin: 0 auto;
     border-radius: 8px;
     overflow: hidden;
-    border: 1px solid #ddd;
-    background: #f5f5f5;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: var(--color-black);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
 .juxtapose {
     width: 100%;
-    aspect-ratio: 480/832;
-    /* 竖屏视频比例 */
+    aspect-ratio: 832/480;
+    /* 横屏视频比例：宽832 高480 */
 }
 
-/* 自定义 Juxtapose 样式 */
+/* 自定义 Juxtapose 样式 - 制片厂风格 */
 .jx-controller {
     background: var(--color-accent) !important;
     border: 3px solid var(--color-white) !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5) !important;
 }
 
 .jx-arrow {
@@ -257,13 +268,13 @@ body {
 
 .jx-handle {
     background: var(--color-accent) !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
 }
 
 /* =================== BibTeX =================== */
 .bibtex-box {
-    background: #f5f5f5;
-    border: 1px solid #ddd;
+    background: var(--color-gray-dark);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 8px;
     padding: var(--spacing-md);
     margin-bottom: var(--spacing-md);
@@ -274,7 +285,7 @@ body {
 
 .bibtex-box:hover {
     border-color: var(--color-accent);
-    box-shadow: 0 0 0 2px rgba(141, 133, 229, 0.1);
+    box-shadow: 0 0 0 2px rgba(141, 133, 229, 0.2);
 }
 
 .bibtex-box pre {
@@ -282,26 +293,26 @@ body {
     font-family: 'Courier New', monospace;
     font-size: 0.9rem;
     line-height: 1.6;
-    color: #333;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .note {
     text-align: center;
     font-size: 0.9rem;
-    color: #999;
+    color: rgba(255, 255, 255, 0.6);
     font-style: italic;
 }
 
 /* =================== Footer =================== */
 .footer {
-    background: #f5f5f5;
+    background: var(--color-gray-dark);
     padding: var(--spacing-lg) 0;
     text-align: center;
-    border-top: 1px solid #e0e0e0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer p {
-    color: #666;
+    color: rgba(255, 255, 255, 0.7);
     font-size: 0.95rem;
 }
 
