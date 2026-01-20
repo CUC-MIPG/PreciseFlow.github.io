@@ -10,12 +10,11 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="style.css">
-
     <!-- Juxtapose for comparison slider -->
     <link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
-    <script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -57,147 +56,113 @@
         </div>
     </section>
 
-    <!-- Teaser Section -->
-    <section class="teaser">
+    <!-- Teaser -->
+    <section class="section">
         <div class="container">
             <div class="teaser-placeholder">
-                <p>Teaser Video / Image Placeholder</p>
-                <span>Your main visual showcase will go here</span>
+                <p>Teaser Video / Image</p>
+                <span>Main visual showcase</span>
             </div>
 
-            <div class="teaser-caption">
-                <p><strong>PreciseFlow</strong> introduces a novel approach to stabilize editing signals in flow-based
-                    video editing models.
-                    Our method achieves <span class="highlight-text">precise temporal consistency</span> and
-                    <span class="highlight-text">high-quality editing results</span> while maintaining the original
-                    video's motion dynamics.
-                </p>
-            </div>
+            <p class="description">
+                <strong>PreciseFlow</strong> introduces a novel approach to stabilize editing signals in flow-based
+                video editing models.
+                Our method achieves <span class="highlight-text">precise temporal consistency</span> and
+                <span class="highlight-text">high-quality editing results</span> while maintaining the original video's
+                motion dynamics.
+            </p>
         </div>
     </section>
 
-    <!-- Navigation Tabs -->
-    <section class="nav-tabs">
+    <!-- Abstract -->
+    <section class="section dark">
+        <div class="container narrow">
+            <h2 class="section-title">Abstract</h2>
+            <p class="abstract">
+                Flow-based video editing models have shown promising results, but maintaining temporal consistency
+                while achieving precise edits remains challenging. PreciseFlow addresses this by stabilizing the
+                editing signal throughout the flow-based generation process. [Your abstract content will go here]
+            </p>
+        </div>
+    </section>
+
+    <!-- Method Overview -->
+    <section class="section">
         <div class="container">
-            <div class="tabs">
-                <a href="#overview" class="tab active">Overview</a>
-                <a href="#method" class="tab">Method</a>
-                <a href="#results" class="tab">Results</a>
-                <a href="#comparisons" class="tab">Comparisons</a>
+            <h2 class="section-title">Method Overview</h2>
+            <div class="framework-placeholder">
+                <p>Framework Diagram</p>
+                <span>Your method overview diagram</span>
             </div>
+            <p class="caption">
+                <strong>Figure 1:</strong> Overview of our PreciseFlow framework.
+            </p>
         </div>
     </section>
 
-    <!-- Overview Section -->
-    <section id="overview" class="section">
-        <div class="container">
-            <h2 class="section-title">Overview</h2>
-            <div class="content">
-                <p>Flow-based video editing models have shown promising results, but maintaining temporal consistency
-                    while achieving precise edits remains challenging. <strong>PreciseFlow</strong> addresses this by
-                    stabilizing the editing signal throughout the flow-based generation process.</p>
-
-                <div class="framework-placeholder">
-                    <p>Framework Diagram Placeholder</p>
-                    <span>Your method overview diagram will go here</span>
-                </div>
-
-                <p class="caption">
-                    <strong>Framework Overview.</strong> Our approach stabilizes editing signals through [your method
-                    description].
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Method Section -->
-    <section id="method" class="section dark">
-        <div class="container">
-            <h2 class="section-title">Method</h2>
-            <div class="content">
-                <h3>Stabilizing the Editing Signal</h3>
-                <p>Our key insight is that [your method description will go here].</p>
-
-                <div class="method-placeholder">
-                    <p>Method Illustration Placeholder</p>
-                    <span>Detailed method diagrams will go here</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Results Section with Video Comparisons -->
-    <section id="results" class="section">
+    <!-- Video Editing Results -->
+    <section class="section dark">
         <div class="container">
             <h2 class="section-title">Video Editing Results</h2>
 
             <!-- Example 1 -->
             <div class="result-item">
-                <h3 class="result-title">Example 1: <s>Original Description</s> → <strong>Edited Description</strong>
+                <h3 class="result-title">
+                    <s>Original prompt</s> → <strong>Edited prompt</strong>
                 </h3>
-                <div class="comparison-slider">
-                    <div class="video-placeholder left">
-                        <p>Source Video</p>
-                        <span>Original video placeholder</span>
-                    </div>
-                    <div class="video-placeholder right">
-                        <p>Edited Video</p>
-                        <span>Edited video placeholder</span>
+                <div class="juxtapose-container">
+                    <div class="juxtapose" data-startingposition="50%">
+                        <img src="placeholder-source.svg" data-label="Source" alt="Source Video">
+                        <img src="placeholder-edited.svg" data-label="PreciseFlow" alt="Edited Video">
                     </div>
                 </div>
+                <p class="video-note">* Placeholder: Replace with actual video frames or GIFs</p>
             </div>
 
             <!-- Example 2 -->
             <div class="result-item">
-                <h3 class="result-title">Example 2: <s>Original Description</s> → <strong>Edited Description</strong>
+                <h3 class="result-title">
+                    <s>Original prompt</s> → <strong>Edited prompt</strong>
                 </h3>
-                <div class="comparison-slider">
-                    <div class="video-placeholder left">
-                        <p>Source Video</p>
-                        <span>Original video placeholder</span>
-                    </div>
-                    <div class="video-placeholder right">
-                        <p>Edited Video</p>
-                        <span>Edited video placeholder</span>
+                <div class="juxtapose-container">
+                    <div class="juxtapose" data-startingposition="50%">
+                        <img src="placeholder-source.svg" data-label="Source" alt="Source Video">
+                        <img src="placeholder-edited.svg" data-label="PreciseFlow" alt="Edited Video">
                     </div>
                 </div>
+                <p class="video-note">* Placeholder: Replace with actual video frames or GIFs</p>
             </div>
 
             <!-- Example 3 -->
             <div class="result-item">
-                <h3 class="result-title">Example 3: <s>Original Description</s> → <strong>Edited Description</strong>
+                <h3 class="result-title">
+                    <s>Original prompt</s> → <strong>Edited prompt</strong>
                 </h3>
-                <div class="comparison-slider">
-                    <div class="video-placeholder left">
-                        <p>Source Video</p>
-                        <span>Original video placeholder</span>
-                    </div>
-                    <div class="video-placeholder right">
-                        <p>Edited Video</p>
-                        <span>Edited video placeholder</span>
+                <div class="juxtapose-container">
+                    <div class="juxtapose" data-startingposition="50%">
+                        <img src="placeholder-source.svg" data-label="Source" alt="Source Video">
+                        <img src="placeholder-edited.svg" data-label="PreciseFlow" alt="Edited Video">
                     </div>
                 </div>
+                <p class="video-note">* Placeholder: Replace with actual video frames or GIFs</p>
             </div>
         </div>
     </section>
 
-    <!-- Comparisons Section -->
-    <section id="comparisons" class="section dark">
+    <!-- Comparisons -->
+    <section class="section">
         <div class="container">
-            <h2 class="section-title">Comparisons with Other Methods</h2>
-
-            <div class="comparison-grid">
-                <div class="comparison-placeholder">
-                    <p>Comparison Table / Visual Comparisons</p>
-                    <span>Quantitative and qualitative comparisons will go here</span>
-                </div>
+            <h2 class="section-title">Comparisons</h2>
+            <div class="comparison-placeholder">
+                <p>Comparison Table / Visual Comparisons</p>
+                <span>Quantitative and qualitative comparisons</span>
             </div>
         </div>
     </section>
 
-    <!-- BibTeX Section -->
-    <section id="bibtex" class="section">
-        <div class="container">
+    <!-- BibTeX -->
+    <section class="section dark">
+        <div class="container narrow">
             <h2 class="section-title">BibTeX</h2>
             <div class="bibtex-box">
                 <pre><code>@article{chen2025preciseflow,
@@ -214,14 +179,12 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 MIPG, Communication University of China. All rights reserved.</p>
-            <p class="footer-note">
-                Website design inspired by academic project pages.
-                Built with ❤️ for the research community.
-            </p>
+            <p>&copy; 2025 MIPG, Communication University of China</p>
         </div>
     </footer>
 
+    <!-- Scripts -->
+    <script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
     <script src="script.js"></script>
 </body>
 
