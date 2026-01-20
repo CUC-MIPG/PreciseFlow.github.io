@@ -45,7 +45,7 @@ body {
 /* =================== Sticky Navigation =================== */
 .navbar {
     position: fixed;
-    top: -60px;
+    top: 0;
     left: 0;
     right: 0;
     height: 50px;
@@ -53,11 +53,14 @@ body {
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     z-index: 1000;
-    transition: top 0.3s ease;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
 }
 
 .navbar.visible {
-    top: 0;
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .nav-container {
@@ -98,6 +101,8 @@ body {
 .header {
     background: var(--color-black);
     padding: var(--spacing-lg) 0 var(--spacing-md);
+    padding-top: calc(var(--spacing-lg) + 50px);
+    /* 为导航栏留空间 */
     text-align: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
