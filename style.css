@@ -1,4 +1,4 @@
-/* =================== 全局样式 - 制片厂黑白风格 =================== */
+/* =================== 全局样式 - 白色背景 + 紫色强调 =================== */
 * {
     margin: 0;
     padding: 0;
@@ -9,11 +9,9 @@
     --color-black: #000000;
     --color-white: #ffffff;
     --color-gray-dark: #1a1a1a;
-    --color-gray-bg: #0a0a0a;
+    --color-gray-bg: #fafafa;
     --color-gray-medium: #333333;
     --color-accent: #8D85E5;
-    --overlay-light: rgba(255, 255, 255, 0.05);
-    --overlay-medium: rgba(255, 255, 255, 0.1);
     --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --spacing-sm: 1rem;
     --spacing-md: 2rem;
@@ -27,8 +25,8 @@ html {
 
 body {
     font-family: var(--font-main);
-    background: var(--color-black);
-    color: var(--color-white);
+    background: var(--color-white);
+    color: #333;
     line-height: 1.6;
 }
 
@@ -42,7 +40,7 @@ body {
     max-width: 900px;
 }
 
-/* =================== Sticky Navigation =================== */
+/* =================== Sticky Navigation (保持黑色) =================== */
 .navbar {
     position: fixed;
     top: 0;
@@ -99,12 +97,11 @@ body {
 
 /* =================== Compact Header =================== */
 .header {
-    background: var(--color-black);
+    background: var(--color-white);
     padding: var(--spacing-lg) 0 var(--spacing-md);
     padding-top: calc(var(--spacing-lg) + 50px);
-    /* 为导航栏留空间 */
     text-align: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid #e0e0e0;
 }
 
 .title {
@@ -112,7 +109,7 @@ body {
     font-weight: 400;
     line-height: 1.4;
     margin-bottom: var(--spacing-md);
-    color: var(--color-white);
+    color: #222;
 }
 
 .title .highlight {
@@ -123,7 +120,7 @@ body {
 .authors {
     font-size: 1.1rem;
     margin-bottom: 0.5rem;
-    color: rgba(255, 255, 255, 0.9);
+    color: #555;
 }
 
 .author {
@@ -136,7 +133,7 @@ body {
 
 .affiliation {
     font-size: 1rem;
-    color: rgba(255, 255, 255, 0.7);
+    color: #666;
     margin-bottom: var(--spacing-md);
 }
 
@@ -152,19 +149,20 @@ body {
     align-items: center;
     gap: 0.5rem;
     padding: 0.7rem 1.5rem;
-    background: var(--overlay-medium);
-    color: var(--color-white);
+    background: #f5f5f5;
+    color: #333;
     text-decoration: none;
     border-radius: 6px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid #ddd;
     font-size: 0.95rem;
     font-weight: 500;
     transition: all 0.2s ease;
 }
 
 .btn:hover {
-    background: rgba(255, 255, 255, 0.15);
-    border-color: rgba(255, 255, 255, 0.4);
+    background: #e8e8e8;
+    border-color: var(--color-accent);
+    color: var(--color-accent);
 }
 
 .btn-disabled {
@@ -176,7 +174,7 @@ body {
 /* =================== Section Styles =================== */
 .section {
     padding: var(--spacing-xl) 0;
-    background: var(--color-black);
+    background: var(--color-white);
     position: relative;
 }
 
@@ -191,7 +189,7 @@ body {
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    background: linear-gradient(90deg, transparent, #e0e0e0, transparent);
 }
 
 .section-title {
@@ -199,14 +197,14 @@ body {
     font-weight: 500;
     text-align: center;
     margin-bottom: var(--spacing-lg);
-    color: var(--color-white);
+    color: #222;
 }
 
 .description,
 .content-text {
     font-size: 1.05rem;
     line-height: 1.8;
-    color: rgba(255, 255, 255, 0.8);
+    color: #555;
     text-align: center;
     max-width: 900px;
     margin: 0 auto var(--spacing-md);
@@ -228,8 +226,8 @@ body {
 .comparison-placeholder {
     width: 100%;
     aspect-ratio: 16/9;
-    background: var(--overlay-light);
-    border: 2px dashed rgba(255, 255, 255, 0.2);
+    background: #f5f5f5;
+    border: 2px dashed #ddd;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -243,8 +241,8 @@ body {
 .framework-placeholder:hover,
 .method-placeholder:hover,
 .comparison-placeholder:hover {
-    border-color: rgba(255, 255, 255, 0.4);
-    background: var(--overlay-medium);
+    border-color: var(--color-accent);
+    background: #f0f0f0;
 }
 
 .teaser-placeholder p,
@@ -254,7 +252,7 @@ body {
     font-size: 1.2rem;
     font-weight: 500;
     margin-bottom: 0.5rem;
-    color: rgba(255, 255, 255, 0.7);
+    color: #666;
 }
 
 .teaser-placeholder span,
@@ -262,13 +260,13 @@ body {
 .method-placeholder span,
 .comparison-placeholder span {
     font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.5);
+    color: #999;
 }
 
 .caption {
     text-align: center;
     font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.7);
+    color: #666;
     font-style: italic;
     margin-top: var(--spacing-sm);
 }
@@ -290,11 +288,11 @@ body {
     font-weight: 400;
     text-align: center;
     margin-bottom: 0.8rem;
-    color: rgba(255, 255, 255, 0.9);
+    color: #444;
 }
 
 .result-title s {
-    color: rgba(255, 255, 255, 0.5);
+    color: #999;
 }
 
 .result-title strong {
@@ -308,22 +306,21 @@ body {
     margin: 0 auto;
     border-radius: 6px;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    background: var(--color-black);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    border: 1px solid #ddd;
+    background: #f5f5f5;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .juxtapose {
     width: 100%;
     aspect-ratio: 832/480;
-    /* 横屏视频比例：宽832 高480 */
 }
 
-/* 自定义 Juxtapose 样式 - 制片厂风格 */
+/* 自定义 Juxtapose 样式 - 紫色强调 */
 .jx-controller {
     background: var(--color-accent) !important;
     border: 3px solid var(--color-white) !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
 }
 
 .jx-arrow {
@@ -332,13 +329,13 @@ body {
 
 .jx-handle {
     background: var(--color-accent) !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
 }
 
 /* =================== BibTeX =================== */
 .bibtex-box {
-    background: var(--color-gray-dark);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: #f5f5f5;
+    border: 1px solid #ddd;
     border-radius: 8px;
     padding: var(--spacing-md);
     margin-bottom: var(--spacing-md);
@@ -349,7 +346,7 @@ body {
 
 .bibtex-box:hover {
     border-color: var(--color-accent);
-    box-shadow: 0 0 0 2px rgba(141, 133, 229, 0.2);
+    box-shadow: 0 0 0 2px rgba(141, 133, 229, 0.1);
 }
 
 .bibtex-box pre {
@@ -357,26 +354,26 @@ body {
     font-family: 'Courier New', monospace;
     font-size: 0.9rem;
     line-height: 1.6;
-    color: rgba(255, 255, 255, 0.9);
+    color: #333;
 }
 
 .note {
     text-align: center;
     font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.6);
+    color: #999;
     font-style: italic;
 }
 
 /* =================== Footer =================== */
 .footer {
-    background: var(--color-gray-dark);
+    background: #f5f5f5;
     padding: var(--spacing-lg) 0;
     text-align: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid #e0e0e0;
 }
 
 .footer p {
-    color: rgba(255, 255, 255, 0.7);
+    color: #666;
     font-size: 0.95rem;
 }
 
@@ -412,6 +409,14 @@ body {
 
     .results-row {
         grid-template-columns: 1fr;
+    }
+
+    .nav-links {
+        gap: 1rem;
+    }
+
+    .nav-links a {
+        font-size: 0.85rem;
     }
 }
 
