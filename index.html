@@ -6,214 +6,439 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PreciseFlow: Stabilizing the Editing Signal for Flow-Based Video Editing</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
-    <link rel="stylesheet" href="style.css?v=7">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <!-- Sticky Navigation -->
-    <nav class="navbar visible" id="navbar">
-        <div class="nav-container">
-            <a href="#" class="nav-logo">PreciseFlow</a>
-            <div class="nav-links">
-                <a href="#overview">Overview</a>
-                <a href="#results">Results</a>
-                <a href="#method">Method</a>
-                <a href="#comparisons">Comparisons</a>
-                <a href="#bibtex">BibTeX</a>
-            </div>
-        </div>
-    </nav>
+    <!-- Header - StyleAlign 风格 -->
+    <div class="content">
+        <h1><strong>PreciseFlow: Stabilizing the Editing Signal for Flow-Based Video Editing</strong></h1>
+        <h2 style="text-align:center;">ICML 2025</h2>
 
-    <!-- Compact Header -->
-    <section class="header" id="home">
-        <div class="container">
-            <h1 class="title">
-                <span class="highlight">PreciseFlow</span>: Stabilizing the Editing Signal for Flow-Based Video Editing
-            </h1>
+        <p id="authors">
+            <a href="#">Ze Chen<sup>* 1</sup></a>
+            <a href="#">Lan Chen<sup>* 1</sup></a>
+            <a href="#">Yuanhang Li<sup>1</sup></a>
+            <a href="#">Qi Mao<sup>† 1</sup></a><br>
+            <span style="font-size: 16px"><br>
+                <sup>1</sup> MIPG, Communication University of China<br>
+                <sup>*</sup> Equal Contribution &nbsp;&nbsp;&nbsp;&nbsp; <sup>†</sup> Corresponding Author
+            </span>
+        </p>
 
-            <div class="authors">
-                <span class="author">Ze Chen</span>
-                <span class="author">Lan Chen</span>
-                <span class="author">Yuanhang Li</span>
-                <span class="author">Qi Mao<sup>*</sup></span>
-            </div>
+        <img src="teaser.png" class="teaser-gif" style="width:100%;">
 
-            <div class="affiliation">
-                MIPG, Communication University of China
-            </div>
+        <p style="text-align: center; font-size: 18px; margin-top: 15px; line-height: 1.6;">
+            <strong>TL;DR:</strong> PreciseFlow stabilizes flow-based video editing by anchoring <em>where</em> to edit
+            (via Semantic Alignment Regulation) and <em>how strongly</em> to edit (via Dynamic Amplitude Regulation),
+            achieving precise, temporally consistent results without training.
+        </p>
 
-            <div class="links">
-                <a href="#" class="btn btn-disabled">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                        <polyline points="14 2 14 8 20 8"></polyline>
-                    </svg>
-                    Paper (Coming Soon)
-                </a>
-                <a href="https://github.com/CUC-MIPG/PreciseFlow" class="btn" target="_blank">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                    </svg>
-                    Code
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Teaser -->
-    <section class="section">
-        <div class="container">
-            <div class="teaser-placeholder">
-                <p>Teaser Image</p>
-                <span>Main visual showcase</span>
-            </div>
-
-            <p class="description">
-                <strong>PreciseFlow</strong> introduces a novel approach to stabilize editing signals in flow-based
-                video editing models.
-                Our method achieves <span class="highlight-text">precise temporal consistency</span> and
-                <span class="highlight-text">high-quality editing results</span> while maintaining the original video's
-                motion dynamics.
+        <font size="+2">
+            <p style="text-align: center;">
+                <a href="#" class="btn btn-disabled">[Paper (Coming Soon)]</a> &nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="https://github.com/CUC-MIPG/PreciseFlow" target="_blank">[Code]</a>
             </p>
-        </div>
-    </section>
+        </font>
+    </div>
+
+    <!-- Abstract -->
+    <div class="content">
+        <h2 style="text-align:center;">Abstract</h2>
+        <p>
+            We propose <strong>PreciseFlow</strong>, a training-free framework for stable and efficient inversion-free,
+            flow-based video editing. Inversion-free editing methods have recently shown impressive efficiency and
+            structure
+            preservation in images by directly steering the sampling trajectory with an editing signal. However,
+            extending
+            this paradigm to videos remains challenging, often failing in multi-object scenes or with increased frame
+            counts.
+            We identify the root cause as the <em>instability of the editing signal</em> in high-dimensional video
+            latent spaces,
+            which arises from imprecise spatial localization and length-induced amplitude attenuation.
+        </p>
+        <p>
+            To overcome this challenge, PreciseFlow explicitly anchors both <em>where</em> to edit and <em>how
+                strongly</em> to edit.
+            It introduces <strong>Semantic Alignment Regulation</strong>, which enforces consistent alignment between
+            textual
+            guidance and spatial regions, and <strong>Dynamic Amplitude Regulation</strong>, which adaptively preserves
+            sufficient
+            editing strength. Together, these mechanisms stabilize the editing signal and guide the flow-based evolution
+            toward
+            the desired target distribution. Extensive experiments demonstrate that <strong>PreciseFlow</strong>
+            achieves more
+            faithful, temporally coherent, and computationally efficient video editing across challenging multi-object
+            and
+            fast-motion scenarios.
+        </p>
+    </div>
 
     <!-- Overview -->
-    <section class="section light" id="overview">
-        <div class="container">
-            <h2 class="section-title">Overview</h2>
-            <p class="content-text">
-                Flow-based video editing models have shown promising results, but maintaining temporal consistency
-                while achieving precise edits remains challenging. PreciseFlow addresses this by stabilizing the
-                editing signal throughout the flow-based generation process.
-            </p>
-
-            <div class="framework-placeholder">
-                <p>Framework Diagram</p>
-                <span>Your method overview diagram</span>
-            </div>
-            <p class="caption">
-                <strong>Figure 1:</strong> Overview of our PreciseFlow framework.
-            </p>
-        </div>
-    </section>
-
-    <!-- Video Editing Results -->
-    <section class="section" id="results">
-        <div class="container">
-            <h2 class="section-title">Video Editing Results</h2>
-
-            <!-- Row 1 -->
-            <div class="results-row">
-                <div class="result-item">
-                    <p class="result-title"><s>dog</s> → <strong>cat</strong></p>
-                    <div class="juxtapose-container">
-                        <div class="juxtapose" data-startingposition="50%">
-                            <img src="placeholder-source.svg" data-label="Source" alt="Source">
-                            <img src="placeholder-edited.svg" data-label="PreciseFlow" alt="Edited">
-                        </div>
-                    </div>
-                </div>
-                <div class="result-item">
-                    <p class="result-title"><s>car</s> → <strong>truck</strong></p>
-                    <div class="juxtapose-container">
-                        <div class="juxtapose" data-startingposition="50%">
-                            <img src="placeholder-source.svg" data-label="Source" alt="Source">
-                            <img src="placeholder-edited.svg" data-label="PreciseFlow" alt="Edited">
-                        </div>
-                    </div>
-                </div>
-                <div class="result-item">
-                    <p class="result-title"><s>day</s> → <strong>night</strong></p>
-                    <div class="juxtapose-container">
-                        <div class="juxtapose" data-startingposition="50%">
-                            <img src="placeholder-source.svg" data-label="Source" alt="Source">
-                            <img src="placeholder-edited.svg" data-label="PreciseFlow" alt="Edited">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Row 2 -->
-            <div class="results-row">
-                <div class="result-item">
-                    <p class="result-title"><s>summer</s> → <strong>winter</strong></p>
-                    <div class="juxtapose-container">
-                        <div class="juxtapose" data-startingposition="50%">
-                            <img src="placeholder-source.svg" data-label="Source" alt="Source">
-                            <img src="placeholder-edited.svg" data-label="PreciseFlow" alt="Edited">
-                        </div>
-                    </div>
-                </div>
-                <div class="result-item">
-                    <p class="result-title"><s>man</s> → <strong>woman</strong></p>
-                    <div class="juxtapose-container">
-                        <div class="juxtapose" data-startingposition="50%">
-                            <img src="placeholder-source.svg" data-label="Source" alt="Source">
-                            <img src="placeholder-edited.svg" data-label="PreciseFlow" alt="Edited">
-                        </div>
-                    </div>
-                </div>
-                <div class="result-item">
-                    <p class="result-title"><s>real</s> → <strong>anime</strong></p>
-                    <div class="juxtapose-container">
-                        <div class="juxtapose" data-startingposition="50%">
-                            <img src="placeholder-source.svg" data-label="Source" alt="Source">
-                            <img src="placeholder-edited.svg" data-label="PreciseFlow" alt="Edited">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="content">
+        <h2 style="text-align:center;">Problem Statement</h2>
+        <p>
+            While FlowEdit offers an efficient inversion-free framework, its naive application to video leads to
+            noticeable
+            performance degradation. We investigate this ineffectiveness by qualitatively and quantitatively analyzing
+            the
+            <em>editing signal</em> ΔV, revealing two factors that contribute to its instability.
+        </p>
+        <br>
+        <img class="summary-img" src="motivation_0129_v3_01.png" style="width:100%;">
+        <p style="text-align: center; font-size: 16px; margin-top: 10px;">
+            (a) <strong>Imprecise Localization:</strong> Editing signal leaks to wrong regions.
+            (b) <strong>Weakened Amplitude:</strong> Signal fades with more frames.
+        </p>
+    </div>
 
     <!-- Method -->
-    <section class="section light" id="method">
-        <div class="container">
-            <h2 class="section-title">Method</h2>
-            <div class="method-placeholder">
-                <p>Method Illustration</p>
-                <span>Detailed method diagrams</span>
+    <div class="content">
+        <h2 style="text-align:center;">Method</h2>
+        <p>
+            PreciseFlow introduces two key mechanisms: <strong>Semantic Alignment Regulation (SAR)</strong> anchors
+            <em>where</em> to edit, and <strong>Dynamic Amplitude Regulation (DAR)</strong> anchors <em>how
+                strongly</em>
+            to edit. Together, they stabilize the editing signal throughout the flow-based generation process.
+        </p>
+        <br>
+        <img class="summary-img" src="framework_0129.png" style="width:100%;">
+        <p style="text-align: center; font-size: 16px; margin-top: 10px;">
+            (a) Overview of the editing process with SAR and DAR.
+            (b) Cross-attention modulation at token and spatio-temporal levels.
+            (c) Signal amplification using normalized importance map.
+        </p>
+        <br>
+        <h3>Semantic Alignment Regulation</h3>
+        <p>
+            SAR regulates cross-attention maps at both token and spatio-temporal levels to prevent semantic leakage
+            in multi-object scenes. This ensures the editing signal remains consistently aligned with target semantics
+            across all frames.
+        </p>
+        <br>
+        <h3>Dynamic Amplitude Regulation</h3>
+        <p>
+            DAR generates a normalized importance map from the editing signal itself, then uses it to adaptively amplify
+            regions with significant semantic changes. This maintains sufficient editing strength even in longer video
+            sequences.
+        </p>
+    </div>
+
+    <!-- Video Editing Results -->
+    <div class="content" id="results">
+        <h2 style="text-align:center;">Video Editing Results</h2>
+
+        <h3 style="text-align:center; margin-bottom: 20px;">Color Editing</h3>
+        <!-- Color Editing -->
+        <div class="results-row">
+            <div class="result-item">
+                <p class="result-title"><s>blue</s> → <strong>green</strong></p>
+                <div class="video-compare-container">
+                    <video class="video-background" src="website/1_ours.mp4" loop muted playsinline autoplay></video>
+                    <div class="video-foreground-wrapper">
+                        <video class="video-foreground" src="website/1_src.mp4" loop muted playsinline autoplay></video>
+                    </div>
+                    <input type="range" min="0" max="100" value="50" class="video-slider">
+                    <div class="video-labels">
+                        <span class="label-left">Source</span>
+                        <span class="label-right">PreciseFlow</span>
+                    </div>
+                </div>
+            </div>
+            <div class="result-item">
+                <p class="result-title"><s>beige</s> → <strong>yellow</strong></p>
+                <div class="video-compare-container">
+                    <video class="video-background" src="website/2_ours.mp4" loop muted playsinline autoplay></video>
+                    <div class="video-foreground-wrapper">
+                        <video class="video-foreground" src="website/2_src.mp4" loop muted playsinline autoplay></video>
+                    </div>
+                    <input type="range" min="0" max="100" value="50" class="video-slider">
+                    <div class="video-labels">
+                        <span class="label-left">Source</span>
+                        <span class="label-right">PreciseFlow</span>
+                    </div>
+                </div>
+            </div>
+            <div class="result-item">
+                <p class="result-title"><s>black</s> → <strong>blue</strong></p>
+                <div class="video-compare-container">
+                    <video class="video-background" src="website/7_ours.mp4" loop muted playsinline autoplay></video>
+                    <div class="video-foreground-wrapper">
+                        <video class="video-foreground" src="website/7_src.mp4" loop muted playsinline autoplay></video>
+                    </div>
+                    <input type="range" min="0" max="100" value="50" class="video-slider">
+                    <div class="video-labels">
+                        <span class="label-left">Source</span>
+                        <span class="label-right">PreciseFlow</span>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
+
+        <h3 style="text-align:center; margin: 40px 0 20px;">Texture Editing</h3>
+        <!-- Texture Editing -->
+        <div class="results-row">
+            <div class="result-item">
+                <p class="result-title"><s>sweater</s> → <strong>plaid sweater</strong></p>
+                <div class="video-compare-container">
+                    <video class="video-background" src="website/3_ours.mp4" loop muted playsinline autoplay></video>
+                    <div class="video-foreground-wrapper">
+                        <video class="video-foreground" src="website/3_src.mp4" loop muted playsinline autoplay></video>
+                    </div>
+                    <input type="range" min="0" max="100" value="50" class="video-slider">
+                    <div class="video-labels">
+                        <span class="label-left">Source</span>
+                        <span class="label-right">PreciseFlow</span>
+                    </div>
+                </div>
+            </div>
+            <div class="result-item">
+                <p class="result-title"><s>football</s> → <strong>glassy football</strong></p>
+                <div class="video-compare-container">
+                    <video class="video-background" src="website/4_ours.mp4" loop muted playsinline autoplay></video>
+                    <div class="video-foreground-wrapper">
+                        <video class="video-foreground" src="website/4_src.mp4" loop muted playsinline autoplay></video>
+                    </div>
+                    <input type="range" min="0" max="100" value="50" class="video-slider">
+                    <div class="video-labels">
+                        <span class="label-left">Source</span>
+                        <span class="label-right">PreciseFlow</span>
+                    </div>
+                </div>
+            </div>
+            <div class="result-item">
+                <p class="result-title"><s>navy</s> → <strong>denim</strong></p>
+                <div class="video-compare-container">
+                    <video class="video-background" src="website/8_ours.mp4" loop muted playsinline autoplay></video>
+                    <div class="video-foreground-wrapper">
+                        <video class="video-foreground" src="website/8_src.mp4" loop muted playsinline autoplay></video>
+                    </div>
+                    <input type="range" min="0" max="100" value="50" class="video-slider">
+                    <div class="video-labels">
+                        <span class="label-left">Source</span>
+                        <span class="label-right">PreciseFlow</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h3 style="text-align:center; margin: 40px 0 20px;">Object Replacement</h3>
+        <!-- Object Replacement -->
+        <div class="results-row">
+            <div class="result-item">
+                <p class="result-title"><s>flower</s> → <strong>sunflower</strong></p>
+                <div class="video-compare-container">
+                    <video class="video-background" src="website/5_ours.mp4" loop muted playsinline autoplay></video>
+                    <div class="video-foreground-wrapper">
+                        <video class="video-foreground" src="website/5_src.mp4" loop muted playsinline autoplay></video>
+                    </div>
+                    <input type="range" min="0" max="100" value="50" class="video-slider">
+                    <div class="video-labels">
+                        <span class="label-left">Source</span>
+                        <span class="label-right">PreciseFlow</span>
+                    </div>
+                </div>
+            </div>
+            <div class="result-item">
+                <p class="result-title"><s>sushi</s> → <strong>steak</strong></p>
+                <div class="video-compare-container">
+                    <video class="video-background" src="website/6_ours.mp4" loop muted playsinline autoplay></video>
+                    <div class="video-foreground-wrapper">
+                        <video class="video-foreground" src="website/6_src.mp4" loop muted playsinline autoplay></video>
+                    </div>
+                    <input type="range" min="0" max="100" value="50" class="video-slider">
+                    <div class="video-labels">
+                        <span class="label-left">Source</span>
+                        <span class="label-right">PreciseFlow</span>
+                    </div>
+                </div>
+            </div>
+            <div class="result-item">
+                <p class="result-title"><s>horse</s> → <strong>zebra</strong></p>
+                <div class="video-compare-container">
+                    <video class="video-background" src="website/9_ours.mp4" loop muted playsinline autoplay></video>
+                    <div class="video-foreground-wrapper">
+                        <video class="video-foreground" src="website/9_src.mp4" loop muted playsinline autoplay></video>
+                    </div>
+                    <input type="range" min="0" max="100" value="50" class="video-slider">
+                    <div class="video-labels">
+                        <span class="label-left">Source</span>
+                        <span class="label-right">PreciseFlow</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Comparisons -->
-    <section class="section" id="comparisons">
-        <div class="container">
-            <h2 class="section-title">Comparisons</h2>
-            <div class="comparison-placeholder">
-                <p>Comparison Table / Visual Comparisons</p>
-                <span>Quantitative and qualitative comparisons</span>
-            </div>
-        </div>
-    </section>
+    <div class="content">
+        <h2 style="text-align:center;">Comparisons</h2>
+        <p>
+            We compare PreciseFlow with state-of-the-art video editing methods. Our method achieves superior
+            localized text alignment (L.CLIP-T), maintains high fidelity (L.DINO, M.PSNR), ensures temporal
+            consistency (CLIP-F, Warp-Err), and is computationally efficient.
+        </p>
+        <br>
+
+        <!-- Quantitative Table -->
+        <table style="width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px;">
+            <thead>
+                <tr style="background-color: #f5f5f5;">
+                    <th style="padding: 10px; text-align: left; border-bottom: 2px solid #ddd;">Method</th>
+                    <th style="padding: 10px; text-align: center; border-bottom: 2px solid #ddd;">CLIP-T ↑</th>
+                    <th style="padding: 10px; text-align: center; border-bottom: 2px solid #ddd;">L.CLIP-T ↑</th>
+                    <th style="padding: 10px; text-align: center; border-bottom: 2px solid #ddd;">L.DINO ↑</th>
+                    <th style="padding: 10px; text-align: center; border-bottom: 2px solid #ddd;">M.PSNR ↑</th>
+                    <th style="padding: 10px; text-align: center; border-bottom: 2px solid #ddd;">CLIP-F ↑</th>
+                    <th style="padding: 10px; text-align: center; border-bottom: 2px solid #ddd;">Warp-Err ↓</th>
+                    <th style="padding: 10px; text-align: center; border-bottom: 2px solid #ddd;">Time/f (s) ↓</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="padding: 8px; border-bottom: 1px solid #eee;">TokenFlow</td>
+                    <td style="padding: 8px; text-align: center; border-bottom: 1px solid #eee;">24.58</td>
+                    <td style="padding: 8px; text-align: center; border-bottom: 1px solid #eee;">18.32</td>
+                    <td style="padding: 8px; text-align: center; border-bottom: 1px solid #eee;">0.7790</td>
+                    <td style="padding: 8px; text-align: center; border-bottom: 1px solid #eee;">20.06</td>
+                    <td style="padding: 8px; text-align: center; border-bottom: 1px solid #eee;">0.9601</td>
+                    <td style="padding: 8px; text-align: center; border-bottom: 1px solid #eee;">2.896</td>
+                    <td style="padding: 8px; text-align: center; border-bottom: 1px solid #eee;">10.93</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px; border-bottom: 1px solid #eee;">VideoGrain</td>
+                    <td style="padding: 8px; text-align: center; border-bottom: 1px solid #eee;">23.83</td>
+                    <td
+                        style="padding: 8px; text-align: center; border-bottom: 1px solid #eee; background-color: #d4edda;">
+                        20.47</td>
+                    <td style="padding: 8px; text-align: center; border-bottom: 1px solid #eee;">0.7358</td>
+                    <td style="padding: 8px; text-align: center; border-bottom: 1px solid #eee;">24.49</td>
+                    <td style="padding: 8px; text-align: center; border-bottom: 1px solid #eee;">0.9340</td>
+                    <td style="padding: 8px; text-align: center; border-bottom: 1px solid #eee;">4.079</td>
+                    <td style="padding: 8px; text-align: center; border-bottom: 1px solid #eee;">14.00</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px; border-bottom: 1px solid #eee;">VideoDirector</td>
+                    <td style="padding: 8px; text-align: center; border-bottom: 1px solid #eee;">22.32</td>
+                    <td style="padding: 8px; text-align: center; border-bottom: 1px solid #eee;">17.92</td>
+                    <td style="padding: 8px; text-align: center; border-bottom: 1px solid #eee;">0.6054</td>
+                    <td style="padding: 8px; text-align: center; border-bottom: 1px solid #eee;">14.83</td>
+                    <td style="padding: 8px; text-align: center; border-bottom: 1px solid #eee;">0.8528</td>
+                    <td style="padding: 8px; text-align: center; border-bottom: 1px solid #eee;">8.714</td>
+                    <td style="padding: 8px; text-align: center; border-bottom: 1px solid #eee;">42.41</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px; border-bottom: 1px solid #eee;">RF-Solver Edit</td>
+                    <td style="padding: 8px; text-align: center; border-bottom: 1px solid #eee;">24.52</td>
+                    <td style="padding: 8px; text-align: center; border-bottom: 1px solid #eee;">18.47</td>
+                    <td style="padding: 8px; text-align: center; border-bottom: 1px solid #eee;">0.5913</td>
+                    <td style="padding: 8px; text-align: center; border-bottom: 1px solid #eee;">15.25</td>
+                    <td style="padding: 8px; text-align: center; border-bottom: 1px solid #eee;">0.9744</td>
+                    <td style="padding: 8px; text-align: center; border-bottom: 1px solid #eee;">5.212</td>
+                    <td style="padding: 8px; text-align: center; border-bottom: 1px solid #eee;">10.89</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px; border-bottom: 1px solid #eee;">Wan-Edit</td>
+                    <td style="padding: 8px; text-align: center; border-bottom: 1px solid #eee;">23.07</td>
+                    <td style="padding: 8px; text-align: center; border-bottom: 1px solid #eee;">18.43</td>
+                    <td style="padding: 8px; text-align: center; border-bottom: 1px solid #eee;">0.8221</td>
+                    <td style="padding: 8px; text-align: center; border-bottom: 1px solid #eee;">25.18</td>
+                    <td style="padding: 8px; text-align: center; border-bottom: 1px solid #eee;">0.9712</td>
+                    <td style="padding: 8px; text-align: center; border-bottom: 1px solid #eee;">2.578</td>
+                    <td
+                        style="padding: 8px; text-align: center; border-bottom: 1px solid #eee; background-color: #d4edda;">
+                        1.183</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px; border-bottom: 1px solid #eee;">Wan-Edit+Mask</td>
+                    <td style="padding: 8px; text-align: center; border-bottom: 1px solid #eee;">23.77</td>
+                    <td style="padding: 8px; text-align: center; border-bottom: 1px solid #eee;">18.49</td>
+                    <td
+                        style="padding: 8px; text-align: center; border-bottom: 1px solid #eee; background-color: #d4edda;">
+                        0.8423</td>
+                    <td
+                        style="padding: 8px; text-align: center; border-bottom: 1px solid #eee; background-color: #d4edda;">
+                        26.63</td>
+                    <td
+                        style="padding: 8px; text-align: center; border-bottom: 1px solid #eee; background-color: #d4edda;">
+                        0.9748</td>
+                    <td style="padding: 8px; text-align: center; border-bottom: 1px solid #eee;">2.173</td>
+                    <td style="padding: 8px; text-align: center; border-bottom: 1px solid #eee;">1.353</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px; border-bottom: 1px solid #eee;">FlowDirector</td>
+                    <td
+                        style="padding: 8px; text-align: center; border-bottom: 1px solid #eee; background-color: #fff3cd;">
+                        25.19</td>
+                    <td style="padding: 8px; text-align: center; border-bottom: 1px solid #eee;">19.57</td>
+                    <td style="padding: 8px; text-align: center; border-bottom: 1px solid #eee;">0.5970</td>
+                    <td style="padding: 8px; text-align: center; border-bottom: 1px solid #eee;">19.93</td>
+                    <td style="padding: 8px; text-align: center; border-bottom: 1px solid #eee;">0.9720</td>
+                    <td
+                        style="padding: 8px; text-align: center; border-bottom: 1px solid #eee; background-color: #d4edda;">
+                        2.030</td>
+                    <td style="padding: 8px; text-align: center; border-bottom: 1px solid #eee;">13.59</td>
+                </tr>
+                <tr style="background-color: #f9f9f9; font-weight: 600;">
+                    <td style="padding: 8px; border-bottom: 2px solid #ddd;">PreciseFlow (Ours)</td>
+                    <td
+                        style="padding: 8px; text-align: center; border-bottom: 2px solid #ddd; background-color: #d4edda;">
+                        24.81</td>
+                    <td
+                        style="padding: 8px; text-align: center; border-bottom: 2px solid #ddd; background-color: #fff3cd;">
+                        21.59</td>
+                    <td
+                        style="padding: 8px; text-align: center; border-bottom: 2px solid #ddd; background-color: #fff3cd;">
+                        0.8504</td>
+                    <td
+                        style="padding: 8px; text-align: center; border-bottom: 2px solid #ddd; background-color: #fff3cd;">
+                        29.53</td>
+                    <td
+                        style="padding: 8px; text-align: center; border-bottom: 2px solid #ddd; background-color: #fff3cd;">
+                        0.9781</td>
+                    <td
+                        style="padding: 8px; text-align: center; border-bottom: 2px solid #ddd; background-color: #fff3cd;">
+                        1.392</td>
+                    <td
+                        style="padding: 8px; text-align: center; border-bottom: 2px solid #ddd; background-color: #fff3cd;">
+                        0.816</td>
+                </tr>
+            </tbody>
+        </table>
+        <p style="text-align: center; font-size: 14px; color: #666; margin-top: 10px;">
+            <span style="background-color: #fff3cd; padding: 2px 6px; border-radius: 3px;">Best</span>
+            <span style="background-color: #d4edda; padding: 2px 6px; border-radius: 3px; margin-left: 10px;">Second
+                Best</span>
+        </p>
+        <br>
+
+        <img class="summary-img" src="baseline.png" style="width:100%;">
+        <p style="text-align: center; font-size: 16px; margin-top: 10px;">
+            Qualitative comparisons with baseline methods. PreciseFlow achieves better editing localization,
+            effect quality, and temporal consistency.
+        </p>
+    </div>
 
     <!-- BibTeX -->
-    <section class="section light" id="bibtex">
-        <div class="container narrow">
-            <h2 class="section-title">BibTeX</h2>
-            <div class="bibtex-box">
-                <pre><code>@article{chen2025preciseflow,
+    <div class="content" id="bibtex">
+        <h2 style="text-align:center;">BibTeX</h2>
+        <div class="bibtex-box">
+            <pre><code>@article{chen2025preciseflow,
   title={PreciseFlow: Stabilizing the Editing Signal for Flow-Based Video Editing},
   author={Chen, Ze and Chen, Lan and Li, Yuanhang and Mao, Qi},
   journal={arXiv preprint arXiv:XXXX.XXXXX},
   year={2025}
 }</code></pre>
-            </div>
-            <p class="note">* BibTeX will be updated upon arXiv publication</p>
         </div>
-    </section>
+        <p class="note">* BibTeX will be updated upon arXiv publication</p>
+    </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 MIPG, Communication University of China</p>
-        </div>
-    </footer>
+    <!-- Acknowledgements -->
+    <div class="content" id="acknowledgements">
+        <p><strong>Acknowledgements</strong>: We thank our colleagues for their valuable inputs and feedback that
+            contributed to this work.</p>
+    </div>
 
     <script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
     <script src="script.js"></script>
