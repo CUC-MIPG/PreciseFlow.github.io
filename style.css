@@ -234,7 +234,7 @@ p {
 
 .result-title {
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 300;
     text-align: center;
     margin-bottom: 10px;
     color: #333;
@@ -242,10 +242,11 @@ p {
 
 .result-title s {
     color: #999;
+    font-weight: 300;
 }
 
 .result-title strong {
-    font-weight: 600;
+    font-weight: 400;
 }
 
 /* 自定义视频对比容器 */
@@ -332,7 +333,7 @@ p {
     padding: 4px 10px;
     border-radius: 3px;
     font-size: 12px;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 /* Juxtapose 滑动对比容器 */
